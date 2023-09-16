@@ -1,0 +1,18 @@
+version: '3'
+name: 'postgres_db_auth'
+services:
+  postgres_db_auth:
+    image: postgres:12
+    container_name: postgres_db_auth
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - '5444:5432'
+    volumes:
+      - postgres_db_auth:/var/lib/postgresql/data
+volumes:
+  postgres_db_auth:
+    driver: local

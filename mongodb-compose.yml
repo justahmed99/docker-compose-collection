@@ -1,0 +1,19 @@
+version: '3'
+name: 'database'
+services:
+  database:
+    image: mongo
+    restart: always
+    container_name: 'mongodb'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: development
+      MONGO_INITDB_DATABASE : stock-db
+    ports:
+      - "27072:27017"
+    volumes:
+      - mongodb_db:/data/db
+
+volumes:
+  mongodb_db:
+    driver: local
